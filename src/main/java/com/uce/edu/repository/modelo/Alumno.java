@@ -20,6 +20,11 @@ public class Alumno {
 	@Column(name= "alum_nombre")
 	private String nombre;
 	
+	@Override
+	public String toString() {
+		return "Alumno [id=" + id + ", nombre=" + nombre + "]";
+	}
+
 	//SET Y GET
 	public Integer getId() {
 		return id;

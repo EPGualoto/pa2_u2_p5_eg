@@ -33,6 +33,12 @@ public class Estudiante {
 	@Column(name = "estu_fecha_nacimiento")
 	private LocalDateTime fechaNacimiento;
 
+	@Override
+	public String toString() {
+		return "Estudiante [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula
+				+ ", fechaNacimiento=" + fechaNacimiento + "]";
+	}
+
 	// SET Y GET
 	public Integer getId() {
 		return id;
