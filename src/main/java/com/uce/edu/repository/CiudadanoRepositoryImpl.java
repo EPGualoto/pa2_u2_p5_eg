@@ -35,4 +35,10 @@ public class CiudadanoRepositoryImpl implements ICiudadanoRepository {
 		this.entityManager.remove(ciud);
 	}
 
+	@Override
+	public void actualizar(Ciudadano ciudadano) {
+		// TODO Auto-generated method stub
+		this.entityManager.merge(ciudadano);
+	}
+
 }

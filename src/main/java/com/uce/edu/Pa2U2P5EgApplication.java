@@ -41,7 +41,7 @@ public class Pa2U2P5EgApplication implements CommandLineRunner{
 		Ciudadano ciud1 = this.ciudadanoService.buscar(1);
 		System.out.println(ciud1);
 		
-		//this.empleadoService.insertar(empl);
+		this.empleadoService.insertar(empl);
 		
 	}
 }

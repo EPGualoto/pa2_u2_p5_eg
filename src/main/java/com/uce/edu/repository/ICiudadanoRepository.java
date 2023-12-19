@@ -8,5 +8,8 @@ public interface ICiudadanoRepository {
 	
 	public void insertar(Ciudadano ciudadano);
 	
+	public void actualizar(Ciudadano ciudadano);
+	
 	public void eliminar(Integer id);
+	
 }

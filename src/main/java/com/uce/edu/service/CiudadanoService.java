@@ -30,4 +30,10 @@ public class CiudadanoService implements ICiudadanoService {
 		this.iCiudadanoRepository.eliminar(id);
 	}
 
+	@Override
+	public void actualizar(Ciudadano ciudadano) {
+		// TODO Auto-generated method stub
+		this.iCiudadanoRepository.actualizar(ciudadano);
+	}
+
 }
