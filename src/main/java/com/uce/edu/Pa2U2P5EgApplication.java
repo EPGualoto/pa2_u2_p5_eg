@@ -1,26 +1,23 @@
 package com.uce.edu;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.uce.edu.repository.modelo.Ciudadano;
-import com.uce.edu.repository.modelo.Empleado;
-import com.uce.edu.service.ICiudadanoService;
-import com.uce.edu.service.IEmpleadoService;
+import com.uce.edu.repository.modelo.Habitacion;
+import com.uce.edu.repository.modelo.Hotel;
+import com.uce.edu.service.IHotelService;
 
 @SpringBootApplication
 public class Pa2U2P5EgApplication implements CommandLineRunner{	
-	@Autowired
-	private ICiudadanoService ciudadanoService;
 	
 	@Autowired
-	private IEmpleadoService empleadoService;
-
+	private IHotelService hotelService;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U2P5EgApplication.class, args);
 	}
@@ -29,19 +26,28 @@ public class Pa2U2P5EgApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		
-		Ciudadano ciud = new Ciudadano();
-		ciud.setNombre("Erika");
-		ciud.setApellido("Gualoto");
-		this.ciudadanoService.insertar(ciud);
+		Hotel hotel = new Hotel();
+		hotel.setDireccion("La Colon");
+		hotel.setNombre("Marriot");
+		//hote.setHabitaciones(null);
 		
-		Empleado empl = new Empleado();
-		empl.setSalario(new BigDecimal(10));
-		empl.setFechaIngreso(LocalDateTime.now());
+		Habitacion habi1 = new Habitacion();
+		habi1.setClase("Economica");
+		habi1.setNumero("A1");
+		habi1.setHotel(hotel);
 		
-		Ciudadano ciud1 = this.ciudadanoService.buscar(1);
-		System.out.println(ciud1);
+		Habitacion habi2 = new Habitacion();
+		habi2.setClase("Presidencial");
+		habi2.setNumero("A2");
+		habi2.setHotel(hotel);
 		
-		this.empleadoService.insertar(empl);
+		List<Habitacion> habitaciones = new ArrayList<>();
+		habitaciones.add(habi1);
+		habitaciones.add(habi2);
+		
+		hotel.setHabitaciones(habitaciones);
+		this.hotelService.guardar(hotel);		
+		
 		
 	}
 }
