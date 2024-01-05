@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.uce.edu.repository.ICiudadanoRepository;
-import com.uce.edu.repository.modelo.Alumno;
 import com.uce.edu.repository.modelo.Ciudadano;
 
 @Service
@@ -13,7 +12,7 @@ public class CiudadanoService implements ICiudadanoService {
 	private ICiudadanoRepository iCiudadanoRepository;
 
 	@Override
-	public void insertar(Ciudadano ciudadano) {
+	public void guardar(Ciudadano ciudadano) {
 		// TODO Auto-generated method stub
 		this.iCiudadanoRepository.insertar(ciudadano);
 	}

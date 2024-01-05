@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import com.uce.edu.repository.IEmpleadoRepository;
 import com.uce.edu.repository.modelo.Empleado;
-import com.uce.edu.repository.modelo.Estudiante;
 
 @Service
 public class EmpleadoService implements IEmpleadoService {
@@ -13,7 +12,7 @@ public class EmpleadoService implements IEmpleadoService {
 	private IEmpleadoRepository iEmpleadoRepository;
 
 	@Override
-	public void insertar(Empleado empleado) {
+	public void guardar(Empleado empleado) {
 		// TODO Auto-generated method stub
 		this.iEmpleadoRepository.insertar(empleado);
 	}

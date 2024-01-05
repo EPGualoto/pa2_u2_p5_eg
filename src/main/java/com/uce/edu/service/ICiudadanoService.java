@@ -6,7 +6,7 @@ public interface ICiudadanoService {
 	
 	public Ciudadano buscar(Integer id);
 	
-	public void insertar(Ciudadano ciudadano);
+	public void guardar(Ciudadano ciudadano);
 	
 	public void actualizar(Ciudadano ciudadano);
 	

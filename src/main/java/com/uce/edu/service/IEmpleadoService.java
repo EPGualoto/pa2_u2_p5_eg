@@ -6,7 +6,7 @@ public interface IEmpleadoService {
 	
 	public Empleado buscar(Integer id);
 
-	public void insertar(Empleado empleado);
+	public void guardar(Empleado empleado);
 	
 	public void actualizar(Empleado empleado);
 	
