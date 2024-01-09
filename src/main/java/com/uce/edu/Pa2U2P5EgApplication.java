@@ -2,13 +2,16 @@ package com.uce.edu;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.uce.edu.repository.modelo.Autor;
 import com.uce.edu.repository.modelo.Autor2;
 import com.uce.edu.repository.modelo.AutorLibro;
 import com.uce.edu.repository.modelo.Libro;
@@ -33,6 +36,30 @@ public class Pa2U2P5EgApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		// Insertar:
+		Libro lib = new Libro();
+		lib.setTitulo("Java");
+		lib.setFechaPublicacion(LocalDateTime.now());
+		
+		Autor aut = new Autor();
+		aut.setNombre("Erika Gualoto");
+		aut.setNacionalidad("Ecuatoriana");
+		
+		Autor aut2 = new Autor();
+		aut2.setNombre("Paola Tigrero");
+		aut2.setNacionalidad("Ecuatoriana");
+		
+		Set<Autor> autores1 = new HashSet<Autor>();
+		autores1.add(aut);
+		autores1.add(aut2);
+		lib.setAutores(autores1);
+		
+		Set<Libro> libros = new HashSet<Libro>();
+		libros.add(lib);
+		aut.setLibros(libros);
+		aut2.setLibros(libros);
+
+		this.libroService.guardar(lib);
+		
 		Libro2 libro = new Libro2();
 		libro.setTitulo("Java");
 		libro.setFechaPublicacion(LocalDateTime.now());
@@ -68,7 +95,7 @@ public class Pa2U2P5EgApplication implements CommandLineRunner {
 
 		libro.setAutoresLibros(lista);
 
-		//this.libroService.guardar(libro);
+		this.libroService.guardar(libro);
 		Libro libroFinal = this.libroService.buscarPorNombre("Java");
 		System.out.println(libroFinal);
 	}

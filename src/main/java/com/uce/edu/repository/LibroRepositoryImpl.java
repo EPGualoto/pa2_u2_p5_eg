@@ -53,7 +53,8 @@ public class LibroRepositoryImpl implements ILibroRepository {
 		// TODO Auto-generated method stub
 		// SQL: SELECT * FROM libro l WHERE l.lbr_titulo = ?
 		// JPQL: SELECT l FROM Libro l WHERE l.titulo = :variable
-		Query myQuery = this.entityManager.createQuery("SELECT l FROM Libro l WHERE l.titulo = :variable AND l.fecha = :variable2");
+		//Query myQuery = this.entityManager.createQuery("SELECT l FROM Libro l WHERE l.titulo = :variable AND l.fecha = :variable2");
+		Query myQuery = this.entityManager.createQuery("SELECT l  FROM Libro l WHERE l.titulo = : variable ");
 		// variable va reemplazar en nombre
 		myQuery.setParameter("variable", nombre);
 		// myQuery.setParameter("variable2", nombre); --> en el caso de tener 2 variables.

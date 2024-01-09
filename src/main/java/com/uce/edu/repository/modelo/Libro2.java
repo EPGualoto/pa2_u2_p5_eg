@@ -33,11 +33,6 @@ public class Libro2 {
 	@OneToMany(mappedBy = "libro2", cascade = CascadeType.ALL)
 	private List<AutorLibro> autoresLibros;
 	
-	@Override
-	public String toString() {
-		return "Libro [id=" + id + ", titulo=" + titulo + ", fechaPublicacion=" + fechaPublicacion + "]";
-	}
-
 	// SET Y GET
 	public Integer getId() {
 		return id;

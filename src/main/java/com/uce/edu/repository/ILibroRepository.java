@@ -10,6 +10,8 @@ public interface ILibroRepository {
 	public Libro seleccionar(Integer id);
 	
 	public void actualizar(Libro libro);
+	
+	//public void actualizar(Libro2 libro);
 
 	public void eliminar(Integer id);
 	

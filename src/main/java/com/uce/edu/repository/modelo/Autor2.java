@@ -32,11 +32,6 @@ public class Autor2 {
 	@OneToMany(mappedBy = "autor2")
 	private List<AutorLibro> autoresLibros;
 
-	@Override
-	public String toString() {
-		return "Autor [id=" + id + ", nombre=" + nombre + ", nacionalidad=" + nacionalidad + "]";
-	}
-
 	// SET Y GET
 	public Integer getId() {
 		return id;
