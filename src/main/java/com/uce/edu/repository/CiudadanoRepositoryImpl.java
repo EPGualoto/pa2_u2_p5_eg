@@ -1,19 +1,23 @@
 package com.uce.edu.repository;
 
 import org.springframework.stereotype.Repository;
+
 import com.uce.edu.repository.modelo.Ciudadano;
+import com.uce.edu.repository.modelo.Empleado;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 
 @Repository
 @Transactional
 public class CiudadanoRepositoryImpl implements ICiudadanoRepository {
-	
+	// Tambien funciona con Autowired
 	@PersistenceContext
 	private EntityManager entityManager;
-	
+
 	@Override
 	public void insertar(Ciudadano ciudadano) {
 		// TODO Auto-generated method stub
@@ -25,7 +29,7 @@ public class CiudadanoRepositoryImpl implements ICiudadanoRepository {
 		// TODO Auto-generated method stub
 		return this.entityManager.find(Ciudadano.class, id);
 	}
-	
+
 	@Override
 	public void eliminar(Integer id) {
 		// TODO Auto-generated method stub
@@ -39,4 +43,21 @@ public class CiudadanoRepositoryImpl implements ICiudadanoRepository {
 		this.entityManager.merge(ciudadano);
 	}
 
+	@Override
+	public Empleado seleccionarPorCedula(String cedula) {
+		// TODO Auto-generated method stub
+		TypedQuery<Empleado> myQuery = this.entityManager
+				.createQuery("SELECT l FROM Empleado l WHERE l.ciudadano.cedula =:cedula", Empleado.class);
+		myQuery.setParameter("cedula", cedula);
+		return myQuery.getSingleResult();
+	}
+
+	@Override
+	public Ciudadano seleccionarPorCedulaCiu(String cedula) {
+		// TODO Auto-generated method stub
+		Query myQuery = this.entityManager.createNativeQuery("SELECT * FROM Ciudadano c WHERE c.ciud_cedula = : cedula",
+				Ciudadano.class);
+		myQuery.setParameter("cedula", cedula);
+		return (Ciudadano) myQuery.getSingleResult();
+	}
 }

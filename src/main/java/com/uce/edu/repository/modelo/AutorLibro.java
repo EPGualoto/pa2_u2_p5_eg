@@ -19,6 +19,7 @@ public class AutorLibro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_autor_libro")
 	@SequenceGenerator(name = "seq_autor_libro", sequenceName = "seq_autor_libro", allocationSize = 1)
+	
 	@Column(name = "auli_id")
 	private Integer id;
 	
