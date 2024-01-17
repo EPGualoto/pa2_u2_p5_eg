@@ -19,6 +19,12 @@ public class Ciudadano {
 	@Column(name = "ciud_id")
 	private Integer id;
 	
+	@Override
+	public String toString() {
+		return "Ciudadano [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula
+				+ ", empleado=" + empleado + "]";
+	}
+
 	@Column(name = "ciud_nombre")
 	private String nombre;
 	

@@ -55,7 +55,7 @@ public class CiudadanoRepositoryImpl implements ICiudadanoRepository {
 	@Override
 	public Ciudadano seleccionarPorCedulaCiu(String cedula) {
 		// TODO Auto-generated method stub
-		Query myQuery = this.entityManager.createNativeQuery("SELECT * FROM Ciudadano c WHERE c.ciud_cedula = : cedula",
+		Query myQuery = this.entityManager.createNativeQuery("SELECT * FROM ciudadano c WHERE c.ciud_cedula =:cedula",
 				Ciudadano.class);
 		myQuery.setParameter("cedula", cedula);
 		return (Ciudadano) myQuery.getSingleResult();
