@@ -31,5 +31,7 @@ public interface ILibroService {
 	public Libro buscarPorTituloNamed(String titulo);
 		
 	public List <Libro> buscarPorFechaNamed(LocalDateTime fechaPublicacion);
-		
+	
+	//TypedQuery
+	public Libro buscarPorAutor(String autor);
 }

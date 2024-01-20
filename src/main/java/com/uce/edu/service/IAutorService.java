@@ -11,5 +11,7 @@ public interface IAutorService {
 	public void actualizar(Autor autor);
 
 	public void eliminar(Integer id);
-
+	
+	//NamedQuery
+	public Autor buscarPorNacionalidad(String nacionalidad);
 }

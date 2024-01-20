@@ -35,4 +35,10 @@ public class AutorServiceImpl implements IAutorService {
 		this.iAutorRepository.eliminar(id);
 	}
 
+	@Override
+	public Autor buscarPorNacionalidad(String nacionalidad) {
+		// TODO Auto-generated method stub
+		return this.iAutorRepository.seleccionarPorNacionalidad(nacionalidad);
+	}
+
 }

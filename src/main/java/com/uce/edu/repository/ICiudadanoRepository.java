@@ -16,4 +16,11 @@ public interface ICiudadanoRepository {
 	public Empleado seleccionarPorCedula(String cedula);
 	
 	public Ciudadano seleccionarPorCedulaCiu(String cedula);
+	
+	//TypeQuery
+	public Ciudadano seleccionarPorNombre(String nombre);
+	
+	//NamedQuery
+	public Ciudadano seleccionarPorApellido(String apellido);
+
 }

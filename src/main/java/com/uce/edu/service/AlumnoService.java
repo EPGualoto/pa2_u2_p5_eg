@@ -1,5 +1,7 @@
 package com.uce.edu.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,5 +36,13 @@ public class AlumnoService implements IAlumnoService {
 		// TODO Auto-generated method stub
 		this.iAlumnoRepository.eliminar(id);
 	}
+
+	@Override
+	public List<Alumno> buscarPorNombre(String nombre) {
+		// TODO Auto-generated method stub
+		return this.iAlumnoRepository.seleccionarPorNombre(nombre);
+	}
+	
+	
 
 }

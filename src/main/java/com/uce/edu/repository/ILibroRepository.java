@@ -34,4 +34,7 @@ public interface ILibroRepository {
 	
 	public List <Libro> seleccionarPorFechaNamed(LocalDateTime fechaPublicacion);
 	
+	//TypedQuery
+	public Libro seleccionarPorAutor(String autor);
+	
 }

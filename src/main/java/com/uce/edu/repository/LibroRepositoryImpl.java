@@ -111,4 +111,13 @@ public class LibroRepositoryImpl implements ILibroRepository {
 		myQuery.setParameter("fecha", fechaPublicacion);
 		return myQuery.getResultList();
 	}
+
+	@Override
+	public Libro seleccionarPorAutor(String autor) {
+		// TODO Auto-generated method stub
+		TypedQuery<Libro> myQuery = this.entityManager.createQuery("SELECT l  FROM Libro l WHERE l.autor = : autor ",
+				Libro.class);
+		myQuery.setParameter("autor", autor);
+		return myQuery.getSingleResult();
+	}
 }

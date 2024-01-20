@@ -6,6 +6,7 @@ import com.uce.edu.repository.modelo.Autor;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 
 @Repository
@@ -38,6 +39,14 @@ public class AutorRepositoryImpl implements IAutorRepository {
 		// TODO Auto-generated method stub
 		Autor autor = this.seleccionar(id);
 		this.entityManager.remove(autor);
+	}
+
+	@Override
+	public Autor seleccionarPorNacionalidad(String nacionalidad) {
+		// TODO Auto-generated method stub
+		TypedQuery<Autor> myQuery = this.entityManager.createNamedQuery("Autor.queryBuscarPorNacionalidad", Autor.class);
+		myQuery.setParameter("nacionalidad", nacionalidad);
+		return myQuery.getSingleResult();
 	}
 
 }

@@ -12,4 +12,6 @@ public interface IHabitacionRepository {
 
 	public void eliminar(Integer id);
 	
+	//NamedQuery
+	public Habitacion seleccionarPorClase(String clase);
 }

@@ -35,4 +35,10 @@ public class HabitacionServiceImpl implements IHabitacionService {
 		this.iHabitacionRepository.eliminar(id);
 	}
 
+	@Override
+	public Habitacion buscarPorClase(String clase) {
+		// TODO Auto-generated method stub
+		return this.iHabitacionRepository.seleccionarPorClase(clase);
+	}
+
 }

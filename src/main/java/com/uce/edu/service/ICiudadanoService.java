@@ -17,4 +17,9 @@ public interface ICiudadanoService {
 	
 	public Ciudadano buscarPorCedulaCiu(String cedula);
 	
+	//TypedQuery
+	public Ciudadano buscarPorNombre(String nombre);
+	
+	//NamedQuery
+	public Ciudadano buscarPorApellido(String apellido);
 }

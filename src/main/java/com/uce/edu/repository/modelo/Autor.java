@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.NamedQuery;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -16,6 +17,7 @@ import jakarta.persistence.Table;
 @Table(name = "autor")
 //PRIMERA FORMA
 //PRINCIPAL
+@NamedQuery(name = "Autor.queryBuscarPorNacionalidad", query = "SELECT a FROM Autor a WHERE a.nacionalidad = : nacionalidad ")
 public class Autor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_autor")

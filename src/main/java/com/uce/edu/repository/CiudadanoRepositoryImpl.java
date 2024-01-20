@@ -47,7 +47,7 @@ public class CiudadanoRepositoryImpl implements ICiudadanoRepository {
 	public Empleado seleccionarPorCedula(String cedula) {
 		// TODO Auto-generated method stub
 		TypedQuery<Empleado> myQuery = this.entityManager
-				.createQuery("SELECT l FROM Empleado l WHERE l.ciudadano.cedula =:cedula", Empleado.class);
+				.createQuery("SELECT e FROM Empleado e WHERE e.ciudadano.cedula =:cedula", Empleado.class);
 		myQuery.setParameter("cedula", cedula);
 		return myQuery.getSingleResult();
 	}
@@ -59,5 +59,22 @@ public class CiudadanoRepositoryImpl implements ICiudadanoRepository {
 				Ciudadano.class);
 		myQuery.setParameter("cedula", cedula);
 		return (Ciudadano) myQuery.getSingleResult();
+	}
+
+	@Override
+	public Ciudadano seleccionarPorNombre(String nombre) {
+		// TODO Auto-generated method stub
+		TypedQuery<Ciudadano> myQuery = this.entityManager.createQuery("SELECT c  FROM Ciudadano c WHERE c.nombre = : nombre ",
+				Ciudadano.class);
+		myQuery.setParameter("nombre", nombre);
+		return myQuery.getSingleResult();
+	}
+
+	@Override
+	public Ciudadano seleccionarPorApellido(String apellido) {
+		// TODO Auto-generated method stub
+		TypedQuery<Ciudadano> myQuery = this.entityManager.createNamedQuery("Ciudadano.queryBuscarPorApellido", Ciudadano.class);
+		myQuery.setParameter("apellido", apellido);
+		return myQuery.getSingleResult();
 	}
 }
