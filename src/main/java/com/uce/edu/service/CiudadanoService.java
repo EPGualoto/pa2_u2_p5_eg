@@ -73,4 +73,10 @@ public class CiudadanoService implements ICiudadanoService {
 		return this.iCiudadanoRepository.seleccionarPorCriteriaAndOr(nombre, apellido, cedula);
 	}
 
+	@Override
+	public Ciudadano buscarPorCedulaC(String cedula) {
+		// TODO Auto-generated method stub
+		return this.iCiudadanoRepository.seleccionarPorCedulaC(cedula);
+	}
+
 }

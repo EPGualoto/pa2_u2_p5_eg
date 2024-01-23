@@ -26,5 +26,7 @@ public interface ICiudadanoService {
 	public Ciudadano buscarPorCriteria(String nombre, String apellido, String cedula);
 	
 	public Ciudadano buscarPorCriteriaAndOr(String nombre, String apellido, String cedula);
+	
+	public Ciudadano buscarPorCedulaC (String cedula);
 
 }

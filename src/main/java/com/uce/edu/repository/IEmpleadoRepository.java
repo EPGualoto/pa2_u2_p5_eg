@@ -15,11 +15,13 @@ public interface IEmpleadoRepository {
 	public void actualizar(Empleado empleado);
 
 	public void eliminar(Integer id);
-	
-	//TypedQuery	
-	public List <Empleado> seleccionarPorFechaIngreso(LocalDateTime fechaIngreso);
-	
-	//NamedQuery
-	public List <Empleado> seleccionarPorSalario(BigDecimal salario);
-	
+
+	// TypedQuery
+	public List<Empleado> seleccionarPorFechaIngreso(LocalDateTime fechaIngreso);
+
+	// NamedQuery
+	public List<Empleado> seleccionarPorSalario(BigDecimal salario);
+
+	// Criteria API Query
+	public Empleado seleccionarPoSalarioC(BigDecimal salario);
 }

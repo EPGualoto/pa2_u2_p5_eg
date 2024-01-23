@@ -34,4 +34,7 @@ public interface ILibroService {
 	
 	//TypedQuery
 	public Libro buscarPorAutor(String autor);
-}
+	
+	//Criteria API Query
+	public Libro buscarPorFechaC(LocalDateTime fechaPublicacion);
+	}

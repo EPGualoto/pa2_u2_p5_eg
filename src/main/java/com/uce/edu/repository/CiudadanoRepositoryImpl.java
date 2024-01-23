@@ -176,4 +176,33 @@ public class CiudadanoRepositoryImpl implements ICiudadanoRepository {
 		return myTypedQuery.getSingleResult();
 		
 	}
+
+	@Override
+	public Ciudadano seleccionarPorCedulaC(String cedula) {
+		// TODO Auto-generated method stub
+		//0.Creamos una instancia de la interfaz CriteriaBuilder a partir de un EM
+		CriteriaBuilder myCriteriaBuilder = this.entityManager.getCriteriaBuilder();
+		
+		//1. Determinamos el tipo de retorno que ya ha tener mi consulta.
+		CriteriaQuery<Ciudadano> myCriteriaQuery = myCriteriaBuilder.createQuery(Ciudadano.class);
+		
+		//2.Construimos el SQL
+		//2.1 Determinamos el from(Root)
+		//Nota: No necesariamente el from es igual al tipo de retorno
+		//SELECT c.empleado FROM Ciudadano c WHERE c.empleado.cedula =: dato
+		Root<Ciudadano> myFrom = myCriteriaQuery.from(Ciudadano.class); //FROM Ciudadano c
+		
+		//2.2Construir las condiciones (WHERE)SQL
+		//En criteria API Query las condiciones se las conoce como "Predicate"
+		
+		//c.cedula =: variable
+		Predicate condicionCedula = myCriteriaBuilder.equal(myFrom.get("cedula"), cedula);
+		
+		//3. Construimos el SQL final
+		myCriteriaQuery.select(myFrom).where(condicionCedula);
+		
+		//4. Ejecutamos la consulta con un TypedQuery
+		TypedQuery<Ciudadano> myTypedQuery = this.entityManager.createQuery(myCriteriaQuery);
+		return myTypedQuery.getSingleResult();
+	}
 }

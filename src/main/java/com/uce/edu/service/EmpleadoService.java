@@ -51,4 +51,10 @@ public class EmpleadoService implements IEmpleadoService {
 		return this.iEmpleadoRepository.seleccionarPorSalario(salario);
 	}
 
+	@Override
+	public Empleado buscarPoSalarioC(BigDecimal salario) {
+		// TODO Auto-generated method stub
+		return this.iEmpleadoRepository.seleccionarPoSalarioC(salario);
+	}
+
 }

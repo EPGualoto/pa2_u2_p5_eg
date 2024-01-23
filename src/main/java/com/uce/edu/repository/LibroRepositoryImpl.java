@@ -12,6 +12,10 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 import jakarta.transaction.Transactional;
 
 @Repository
@@ -119,5 +123,33 @@ public class LibroRepositoryImpl implements ILibroRepository {
 				Libro.class);
 		myQuery.setParameter("autor", autor);
 		return myQuery.getSingleResult();
+	}
+
+	@Override
+	public Libro seleccionarPorFechaC(LocalDateTime fechaPublicacion) {
+		// TODO Auto-generated method stub
+		//0.Creamos una instancia de la interfaz CriteriaBuilder a partir de un EM
+		CriteriaBuilder myCriteriaBuilder = this.entityManager.getCriteriaBuilder();
+		
+		//1. Determinamos el tipo de retorno que ya ha tener mi consulta.
+		CriteriaQuery<Libro> myCriteriaQuery = myCriteriaBuilder.createQuery(Libro.class);
+		
+		//2.Construimos el SQL
+		//2.1 Determinamos el from(Root)
+		//Nota: No necesariamente el from es igual al tipo de retorno
+		Root<Libro> myFrom = myCriteriaQuery.from(Libro.class); //FROM Ciudadano c
+		
+		//2.2Construir las condiciones (WHERE)SQL
+		//En criteria API Query las condiciones se las conoce como "Predicate"
+		
+		//c.fechaPublicacion =: variable
+		Predicate condicionfecha = myCriteriaBuilder.equal(myFrom.get("fechaPublicacion"), fechaPublicacion);
+		
+		//3. Construimos el SQL final
+		myCriteriaQuery.select(myFrom).where(condicionfecha);
+		
+		//4. Ejecutamos la consulta con un TypedQuery
+		TypedQuery<Libro> myTypedQuery = this.entityManager.createQuery(myCriteriaQuery);
+		return myTypedQuery.getSingleResult();
 	}
 }

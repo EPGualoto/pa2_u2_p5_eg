@@ -41,4 +41,10 @@ public class HotelServiceImpl implements IHotelService {
 		return this.iHotelRepository.seleccionarPorDireccion(direccion);
 	}
 
+	@Override
+	public Hotel buscarPorDireccionC(String nombre, String direccion) {
+		// TODO Auto-generated method stub
+		return this.iHotelRepository.seleccionarPorDireccionC(nombre, direccion);
+	}
+
 }

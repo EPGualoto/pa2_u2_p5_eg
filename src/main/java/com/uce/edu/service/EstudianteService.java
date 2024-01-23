@@ -44,4 +44,10 @@ public class EstudianteService implements IEstudianteService {
 		return this.iEstudianteRepository.seleccionarPorFechaNacimiento(fechaNacimiento);
 	}
 
+	@Override
+	public Estudiante buscarPorFechaNacimientoC(String nombre, String cedula, LocalDateTime fechaNacimiento) {
+		// TODO Auto-generated method stub
+		return this.iEstudianteRepository.seleccionarPorFechaNacimientoC(nombre, cedula, fechaNacimiento);
+	}
+
 }

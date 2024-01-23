@@ -16,5 +16,6 @@ public interface IEstudianteService {
 	
 	//NamedQuery
 	public List <Estudiante> buscarPorFechaNacimiento(LocalDateTime fechaNacimiento);
-		
+	
+	public Estudiante buscarPorFechaNacimientoC(String nombre, String cedula, LocalDateTime fechaNacimiento);
 }

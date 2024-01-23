@@ -87,4 +87,12 @@ public class LibroServiceImpl implements ILibroService {
 		return this.iLibroRepository.seleccionarPorAutor(autor);
 	}
 
+	@Override
+	public Libro buscarPorFechaC(LocalDateTime fechaPublicacion) {
+		// TODO Auto-generated method stub
+		return this.iLibroRepository.seleccionarPorFechaC(fechaPublicacion);
+	}
+
+
+
 }
