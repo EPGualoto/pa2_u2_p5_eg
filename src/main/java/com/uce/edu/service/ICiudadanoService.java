@@ -20,6 +20,11 @@ public interface ICiudadanoService {
 	//TypedQuery
 	public Ciudadano buscarPorNombre(String nombre);
 	
-	//NamedQuery
+	//Criteria API Query
 	public Ciudadano buscarPorApellido(String apellido);
+	
+	public Ciudadano buscarPorCriteria(String nombre, String apellido, String cedula);
+	
+	public Ciudadano buscarPorCriteriaAndOr(String nombre, String apellido, String cedula);
+
 }

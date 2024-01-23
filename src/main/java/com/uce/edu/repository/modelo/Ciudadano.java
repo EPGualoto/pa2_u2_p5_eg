@@ -6,14 +6,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "ciudadano")
-@NamedQuery(name = "Ciudadano.queryBuscarPorApellido", query = "SELECT c FROM Ciudadano c WHERE c.apellido = : apellido ")
+//@NamedQuery(name = "Ciudadano.queryBuscarPorApellido", query = "SELECT c FROM Ciudadano c WHERE c.apellido = : apellido ")
 public class Ciudadano {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_ciudadano")
@@ -21,12 +20,6 @@ public class Ciudadano {
 	@Column(name = "ciud_id")
 	private Integer id;
 	
-	@Override
-	public String toString() {
-		return "Ciudadano [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula
-				+ ", empleado=" + empleado + "]";
-	}
-
 	@Column(name = "ciud_nombre")
 	private String nombre;
 	
@@ -40,6 +33,17 @@ public class Ciudadano {
 	private Empleado empleado;
 
 
+	/*@Override
+	public String toString() {
+		return "Ciudadano [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula
+				+ ", empleado=" + empleado + "]";
+	}*/
+	
+	@Override
+	public String toString() {
+		return "Ciudadano [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + "]";
+	}
+	
 	//SET Y GET
 	public Integer getId() {
 		return id;
